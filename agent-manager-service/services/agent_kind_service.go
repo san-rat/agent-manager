@@ -408,7 +408,7 @@ func toModelConfigSchema(items []spec.AgentKindConfigSchemaItem) []models.KindCo
 			IsSecret:    item.GetIsSecret(),
 			IsMandatory: item.GetIsMandatory(),
 		}
-		if v, ok := item.GetDefaultValueOk(); ok && v != nil {
+		if v, ok := item.GetDefaultValueOk(); ok && v != nil && !item.GetIsSecret() {
 			result[i].DefaultValue = v
 		}
 	}
