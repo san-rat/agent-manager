@@ -165,7 +165,7 @@ export function DeploymentConfig({
         }
         return {
           key: item.name,
-          value: item.defaultValue ?? "",
+          value: item.isSecret ? "" : (item.defaultValue ?? ""),
           isSensitive: item.isSecret,
         };
       });
